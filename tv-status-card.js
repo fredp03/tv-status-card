@@ -5,7 +5,7 @@ const html = LitElement.prototype.html;
 const css = LitElement.prototype.css;
 
 console.info(
-  `%c TV-STATUS-CARD %c v1.1.1 `,
+  `%c TV-STATUS-CARD %c v1.1.2 `,
   "color: white; background: #555; font-weight: bold;",
   "color: white; background: #007acc; font-weight: bold;"
 );
@@ -26,9 +26,9 @@ class TvStatusCard extends LitElement {
     }
 
     .tv-status {
-      width: 100%;
+      width: fit-content;
       max-width: 341px;
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
