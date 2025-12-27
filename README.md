@@ -46,14 +46,16 @@ Add the card to your dashboard:
 ```yaml
 type: custom:tv-status-card
 entity: media_player.fred_s_bed_tv_2
+scale: 100  # Optional: adjust to zoom in/out (default: 100)
 ```
 
 ### Options
 
-| Option | Type | Required | Description |
-|--------|------|----------|-------------|
-| `type` | string | **Yes** | Must be `custom:tv-status-card` |
-| `entity` | string | **Yes** | The media player entity ID to control |
+| Option | Type | Required | Default | Description |
+|--------|------|----------|---------|-------------|
+| `type` | string | **Yes** | - | Must be `custom:tv-status-card` |
+| `entity` | string | **Yes** | - | The media player entity ID to control |
+| `scale` | number | No | `100` | Scale percentage to zoom in/out the card (e.g., 80 for 80%, 120 for 120%) |
 
 ## Usage
 

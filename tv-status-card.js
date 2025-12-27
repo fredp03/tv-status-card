@@ -5,7 +5,7 @@ const html = LitElement.prototype.html;
 const css = LitElement.prototype.css;
 
 console.info(
-  `%c TV-STATUS-CARD %c v1.0.0 `,
+  `%c TV-STATUS-CARD %c v1.1.0 `,
   "color: white; background: #555; font-weight: bold;",
   "color: white; background: #007acc; font-weight: bold;"
 );
@@ -23,6 +23,10 @@ class TvStatusCard extends LitElement {
       --background-color: #DBDBDB;
       --shadow-color: rgba(162, 162, 162, 0.90);
       --border-color: rgba(0, 0, 0, 0.23);
+    }
+
+    .tv-status-wrapper {
+      transform-origin: top left;
     }
 
     .tv-status {
@@ -120,17 +124,20 @@ class TvStatusCard extends LitElement {
 
     const isOn = entity.state === "on" || entity.state === "playing";
     const displayText = isOn ? "TV is ON" : "TV is OFF";
+    const scale = this.config.scale !== undefined ? this.config.scale / 100 : 1;
 
     return html`
-      <div class="tv-status">
-        <div
-          class="card-item-status ${isOn ? "" : "off"}"
-          @click=${this._handleToggle}
-        >
-          <div class="icon">
-            ${isOn ? this._renderTvOnIcon() : this._renderTvOffIcon()}
+      <div class="tv-status-wrapper" style="transform: scale(${scale});">
+        <div class="tv-status">
+          <div
+            class="card-item-status ${isOn ? "" : "off"}"
+            @click=${this._handleToggle}
+          >
+            <div class="icon">
+              ${isOn ? this._renderTvOnIcon() : this._renderTvOffIcon()}
+            </div>
+            <div class="status-text">${displayText}</div>
           </div>
-          <div class="status-text">${displayText}</div>
         </div>
       </div>
     `;
@@ -213,7 +220,7 @@ class TvStatusCard extends LitElement {
   }
 
   static getStubConfig() {
-    return { entity: "" };
+    return { entity: "", scale: 100 };
   }
 }
 
