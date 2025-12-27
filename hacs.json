@@ -1,5 +1,5 @@
 {
   "name": "TV Status Card",
   "render_readme": true,
-  "filename": "tv-status-card.js"
+  "filename": "dist/tv-status-card.js"
 }
