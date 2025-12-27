@@ -65,8 +65,7 @@ entity: media_player.fred_s_bed_tv_2
 
 ```
 tv-status-card/
-├── dist/
-│   └── tv-status-card.js    # Main component (use this file)
+├── tv-status-card.js         # Main component
 ├── hacs.json                 # HACS configuration
 ├── README.md                 # Documentation
 └── .gitignore
